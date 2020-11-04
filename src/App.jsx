@@ -1,8 +1,9 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import { Button, Typography, Grid } from "@material-ui/core";
+import React, { Fragment } from 'react';
+import { Grid } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles'
 import Header from './Components/Header';
 import Weather from './Content/Weather';
+import Forecast from './Content/Forecast';
 
 const useStyles = makeStyles({
   buttonStyle: {
@@ -14,8 +15,6 @@ const useStyles = makeStyles({
 });
 
 function App() {
-  const [location, setLocation] = useState(false);
-  const [weather, setWeather] = useState(false);
   const classes = useStyles();
   return (
     <Fragment>
@@ -24,16 +23,12 @@ function App() {
           <Header />
         </Grid>
         <Grid item container className={classes.mainSection}>
-          <Grid item xs={0} sm={2} />
-          <Grid item xs={12} sm={8}>
+          <Grid item xs={0} sm={1} />
+          <Grid item xs={12} sm={10}>
             <Weather />
-            <Button
-              className={classes.buttonStyle}
-              color="primary"
-              variant="contained"
-            >Enviar</Button>
+            <Forecast />
           </Grid>
-          <Grid item xs={0} sm={2} />
+          <Grid item xs={0} sm={1} />
         </Grid>
       </Grid>
     </Fragment>
