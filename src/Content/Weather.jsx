@@ -2,7 +2,9 @@ import React, { useState, useEffect, Fragment } from 'react';
 import { Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { List } from './styles';
+import { capitalize } from '../Controller/capitalize';
 import api from '../Service/api';
+import { getCardinal } from '../Controller/degreesToCardinal';
 
 const useStyles = makeStyles({
   cityStyle: {
@@ -67,37 +69,36 @@ const Weather = () => {
   } else {
     return (
       <Fragment>
-        
-          <Grid item container justify='center'>
-            <Typography variant='h4' color='secondary' className={classes.cityStyle}>
-              {weather['name']}, {weather['sys']['country']}
-            </Typography>
-          </Grid>
-          <Grid item container justify='center'>
-            <Typography variant='h4' color='secondary' className={classes.temperatureStyle}>
-              {weather['main']['temp']}º
+        <Grid item container justify='center'>
+          <Typography variant='h4' color='secondary' className={classes.cityStyle}>
+            {weather['name']}, {weather['sys']['country']}
+          </Typography>
+        </Grid>
+        <Grid item container justify='center'>
+          <Typography variant='h4' color='secondary' className={classes.temperatureStyle}>
+            {weather['main']['temp']}º
                 </Typography>
-          </Grid>
-          <Grid item container justify='center'>
-            <Typography variant='h4' color='secondary' className={classes.descStyle}>
-              {weather['weather'][0]['description']}
-            </Typography>
-          </Grid>
-          <Grid item>
-            <Typography>
-              <List>
-                <li>Sensação térmica {weather['main']['feels_like']}º</li>
-                <li>Vento {weather['wind']['deg']}º {weather['wind']['speed']}</li>
-                <li>Visibilidade {weather['visibility']} m</li>
-              </List>
-              <List>
-                <li>Pressão Atm {weather['main']['pressure']} hpa</li>
-                <li>Umidade {weather['main']['humidity']}%</li>
-                <li>Fuso Horário GMT{timezone} </li>
-              </List>
-            </Typography>
-          </Grid>
-          <hr />
+        </Grid>
+        <Grid item container justify='center'>
+          <Typography variant='h4' color='secondary' className={classes.descStyle}>
+            {capitalize(weather['weather'][0]['description'])}
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Typography>
+            <List>
+              <li>Sensação térmica {Math.round(weather['main']['feels_like'])}º</li>
+              <li>Vento {getCardinal(weather['wind']['deg'])} - {weather['wind']['speed']}m/s</li>
+              <li>Visibilidade {weather['visibility']} m</li>
+            </List>
+            <List>
+              <li>Pressão Atm {weather['main']['pressure']} hpa</li>
+              <li>Umidade {weather['main']['humidity']}%</li>
+              <li>Fuso Horário GMT{timezone} </li>
+            </List>
+          </Typography>
+        </Grid>
+        <hr />
       </Fragment>
     );
   }

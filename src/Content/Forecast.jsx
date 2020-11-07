@@ -3,6 +3,8 @@ import WeatherCard from '../Components/Card/WeatherCard';
 import { Grid } from '@material-ui/core';
 import api from '../Service/api';
 import moment from 'moment';
+import { getImg } from '../Service/icon';
+import { capitalize } from '../Controller/capitalize';
 import 'moment/locale/pt-br';
 
 const Forecast = () => {
@@ -10,8 +12,13 @@ const Forecast = () => {
     const [forecast, setForecast] = useState(false);
     const weekDay = []
     for (let i = 0; i < 7; i++) {
-        weekDay.push(moment().add(i, 'days').format('ddd'));
+        weekDay.push(moment().add(i, 'days').format('ddd') + 
+        " " + moment().add(i, 'days').format('D'));
     }
+
+    const weekDayCap = weekDay.map((e) => {
+        return capitalize(e)
+    })
 
     let getForecast = async (lat, long) => {
         let res = await api.get('forecast', {
@@ -45,61 +52,68 @@ const Forecast = () => {
     } else {
         return (
             <Fragment>
-                <Grid container spacing={2}>
+                <Grid container justify='center' spacing={1}>
                     <Grid item>
                         <WeatherCard
-                            dayWeek={weekDay[0]}
+                            dayWeek={weekDayCap[0]}
                             maxTemp={forecast.list[0].main.temp_max}
                             minTemp={forecast.list[0].main.temp_min}
-                            desc={forecast.list[0].weather[0].description}
+                            desc={capitalize(forecast.list[0].weather[0].description)}
+                            imgUrl={getImg(forecast.list[0].weather[0].icon)}
                         />
                     </Grid>
                     <Grid item>
                         <WeatherCard
-                            dayWeek={weekDay[1]}
+                            dayWeek={weekDayCap[1]}
                             maxTemp={forecast.list[1].main.temp_max}
                             minTemp={forecast.list[1].main.temp_min}
-                            desc={forecast.list[1].weather[0].description}
+                            desc={capitalize(forecast.list[1].weather[0].description)}
+                            imgUrl={getImg(forecast.list[1].weather[0].icon)}
                         />
                     </Grid>
                     <Grid item>
                         <WeatherCard
-                            dayWeek={weekDay[2]}
+                            dayWeek={weekDayCap[2]}
                             maxTemp={forecast.list[2].main.temp_max}
                             minTemp={forecast.list[2].main.temp_min}
-                            desc={forecast.list[2].weather[0].description}
+                            desc={capitalize(forecast.list[2].weather[0].description)}
+                            imgUrl={getImg(forecast.list[2].weather[0].icon)}
                         />
                     </Grid>
                     <Grid item>
                         <WeatherCard
-                            dayWeek={weekDay[3]}
+                            dayWeek={weekDayCap[3]}
                             maxTemp={forecast.list[3].main.temp_max}
                             minTemp={forecast.list[3].main.temp_min}
-                            desc={forecast.list[3].weather[0].description}
+                            desc={capitalize(forecast.list[3].weather[0].description)}
+                            imgUrl={getImg(forecast.list[3].weather[0].icon)}
                         />
                     </Grid>
                     <Grid item>
                         <WeatherCard
-                            dayWeek={weekDay[4]}
+                            dayWeek={weekDayCap[4]}
                             maxTemp={forecast.list[4].main.temp_max}
                             minTemp={forecast.list[4].main.temp_min}
-                            desc={forecast.list[4].weather[0].description}
+                            desc={capitalize(forecast.list[4].weather[0].description)}
+                            imgUrl={getImg(forecast.list[4].weather[0].icon)}
                         />
                     </Grid>
                     <Grid item>
                         <WeatherCard
-                            dayWeek={weekDay[5]}
+                            dayWeek={weekDayCap[5]}
                             maxTemp={forecast.list[5].main.temp_max}
                             minTemp={forecast.list[5].main.temp_min}
-                            desc={forecast.list[5].weather[0].description}
+                            desc={capitalize(forecast.list[5].weather[0].description)}
+                            imgUrl={getImg(forecast.list[5].weather[0].icon)}
                         />
                     </Grid>
                     <Grid item>
                         <WeatherCard
-                            dayWeek={weekDay[6]}
+                            dayWeek={weekDayCap[6]}
                             maxTemp={forecast.list[6].main.temp_max}
                             minTemp={forecast.list[6].main.temp_min}
-                            desc={forecast.list[6].weather[0].description}
+                            desc={capitalize(forecast.list[6].weather[0].description)}
+                            imgUrl={getImg(forecast.list[6].weather[0].icon)}
                         />
                     </Grid>
                 </Grid>
