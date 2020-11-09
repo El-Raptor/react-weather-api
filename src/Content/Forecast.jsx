@@ -7,39 +7,53 @@ import { getImg } from '../Service/icon';
 import { capitalize } from '../Controller/capitalize';
 import 'moment/locale/pt-br';
 
-const Forecast = () => {
+const Forecast = (props) => {
+    const { city } = props;
     const [location, setLocation] = useState(false);
     const [forecast, setForecast] = useState(false);
     const weekDay = []
     for (let i = 0; i < 7; i++) {
-        weekDay.push(moment().add(i, 'days').format('ddd') + 
-        " " + moment().add(i, 'days').format('D'));
+        weekDay.push(moment().add(i, 'days').format('ddd') +
+            " " + moment().add(i, 'days').format('D'));
     }
 
     const weekDayCap = weekDay.map((e) => {
         return capitalize(e)
     })
 
-    let getForecast = async (lat, long) => {
-        let res = await api.get('forecast', {
-            params: {
-                lat: lat,
-                lon: long,
-                appid: process.env.REACT_APP_OPEN_WEATHER_KEY,
-                cnt: 7,
-                units: 'metric',
-                lang: 'pt'
-            }
-        });
-        setForecast(res.data);
+    let getForecast = async (city, lat, long) => {
+        if (city) {
+            let res = await api.get('forecast', {
+                params: {
+                    q: city,
+                    appid: process.env.REACT_APP_OPEN_WEATHER_KEY,
+                    cnt: 7,
+                    units: 'metric',
+                    lang: 'pt'
+                }
+            });
+            setForecast(res.data);
+        } else {
+            let res = await api.get('forecast', {
+                params: {
+                    lat: lat,
+                    lon: long,
+                    appid: process.env.REACT_APP_OPEN_WEATHER_KEY,
+                    cnt: 7,
+                    units: 'metric',
+                    lang: 'pt'
+                }
+            });
+            setForecast(res.data);
+        }
     }
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition((position) => {
-            getForecast(position.coords.latitude, position.coords.longitude);
+            getForecast(city, position.coords.latitude, position.coords.longitude);
             setLocation(true);
         })
-    }, []);
+    }, [city]);
 
     if (!location) {
         return (

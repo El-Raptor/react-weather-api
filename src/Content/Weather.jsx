@@ -27,32 +27,47 @@ const useStyles = makeStyles({
   }
 })
 
-const Weather = () => {
+const Weather = (props) => {
+  const { city } = props;
   const [location, setLocation] = useState(false);
   const [weather, setWeather] = useState(false);
   const classes = useStyles();
 
   const timezone = weather['timezone'] / 60 / 60;
 
-  let getWeather = async (lat, long) => {
-    let res = await api.get('weather', {
-      params: {
-        lat: lat,
-        lon: long,
-        appid: process.env.REACT_APP_OPEN_WEATHER_KEY,
-        units: 'metric',
-        lang: 'pt'
-      }
-    });
-    setWeather(res.data);
+  let getWeather = async (city, lat, long) => {
+    if (city) {
+      let res = await api.get('weather', {
+        params: {
+          q: city,
+          appid: process.env.REACT_APP_OPEN_WEATHER_KEY,
+          units: 'metric',
+          lang: 'pt' 
+        }
+      });
+      setWeather(res.data);
+    }
+
+    else {
+      let res = await api.get('weather', {
+        params: {
+          lat: lat,
+          lon: long,
+          appid: process.env.REACT_APP_OPEN_WEATHER_KEY,
+          units: 'metric',
+          lang: 'pt'
+        }
+      });
+      setWeather(res.data);
+    }
   }
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
-      getWeather(position.coords.latitude, position.coords.longitude);
+      getWeather(city, position.coords.latitude, position.coords.longitude);
       setLocation(true);
     })
-  }, []);
+  }, [city]);
 
   if (!location) {
     return (
@@ -77,7 +92,7 @@ const Weather = () => {
         <Grid item container justify='center'>
           <Typography variant='h4' color='secondary' className={classes.temperatureStyle}>
             {weather['main']['temp']}º
-                </Typography>
+          </Typography>
         </Grid>
         <Grid item container justify='center'>
           <Typography variant='h4' color='secondary' className={classes.descStyle}>
