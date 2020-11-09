@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import { Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
-import { List } from './styles';
+import { StyledList } from './styles';
 import { capitalize } from '../Controller/capitalize';
 import api from '../Service/api';
 import { getCardinal } from '../Controller/degreesToCardinal';
@@ -101,16 +101,16 @@ const Weather = (props) => {
         </Grid>
         <Grid item>
           <Typography>
-            <List>
+            <StyledList>
               <li>Sensação térmica {Math.round(weather['main']['feels_like'])}º</li>
               <li>Vento {getCardinal(weather['wind']['deg'])} - {weather['wind']['speed']}m/s</li>
               <li>Visibilidade {weather['visibility']} m</li>
-            </List>
-            <List>
+            </StyledList>
+            <StyledList>
               <li>Pressão Atm {weather['main']['pressure']} hpa</li>
               <li>Umidade {weather['main']['humidity']}%</li>
               <li>Fuso Horário GMT{timezone} </li>
-            </List>
+            </StyledList>
           </Typography>
         </Grid>
         <hr />

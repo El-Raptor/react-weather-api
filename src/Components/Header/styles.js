@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Box } from '@material-ui/core';
 
-export const BoxDiv = styled(Box) `
+export const StyledBox = styled(Box) `
     display: flex;
     flex-flow: row wrap;
     align-items: flex-end;

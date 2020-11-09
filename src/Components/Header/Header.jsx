@@ -3,7 +3,7 @@ import { AppBar, Toolbar, Typography, Grid } from '@material-ui/core';
 import { IconButton, InputBase } from '@material-ui/core';
 import CloudIcon from '@material-ui/icons/Cloud';
 import { makeStyles } from '@material-ui/styles';
-import { BoxDiv } from './styles';
+import { StyledBox } from './styles';
 import Search from '@material-ui/icons/Search';
 
 const useStyles = makeStyles(() => ({
@@ -42,7 +42,7 @@ const Header = (props) => {
                 </Grid>
                 <Grid sm={6} />
                 <Grid sm={3} >
-                    <BoxDiv component="form">
+                    <StyledBox component="form">
                         <IconButton 
                             id="search-btn"
                             type="submit"
@@ -61,7 +61,7 @@ const Header = (props) => {
                             inputLabel={{ 'aria-label': 'search weather' }}
                             placeholder="Buscar..."
                         />
-                    </BoxDiv>
+                    </StyledBox>
                 </Grid>
             </Toolbar>
         </AppBar>
