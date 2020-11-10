@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment } from "react";
-import { Divider } from "@material-ui/core";
-import { StyledBox } from "./styles";
+import { Divider, Typography } from "@material-ui/core";
+import { StyledBox, StyledDiv } from "./styles";
 import { capitalize } from "../../Controller/capitalize";
 import api from "../../Service/api";
 import { getCardinal } from "../../Controller/degreesToCardinal";
@@ -53,10 +53,16 @@ const Weather = (props) => {
     return temp * (9 / 5) + 32;
   };
 
-  //const convertUnit = ('');
-
   if (!location) {
-    return <>Você precisa habilitar a localização do Browser.</>;
+    return (
+      <>
+        <StyledDiv >
+          <Typography>
+            Você precisa habilitar a localização do Browser.
+          </Typography>
+        </StyledDiv>
+      </>
+    );
   } else if (!weather) {
     return <>Carregando o clima...</>;
   } else {
@@ -100,7 +106,12 @@ const Weather = (props) => {
               ? Math.round(weather["main"]["temp"])
               : Math.round(convertUnit(weather["main"]["temp"]))}
           </p>
-          <span className="btn-unit" onClick={() => {setCelsius(!celsius)}}>
+          <span
+            className="btn-unit"
+            onClick={() => {
+              setCelsius(!celsius);
+            }}
+          >
             <p className="unit">º{celsius ? "C" : "F"}</p>
           </span>
         </StyledBox>
