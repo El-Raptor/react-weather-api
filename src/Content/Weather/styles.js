@@ -67,8 +67,18 @@ export const StyledBox = styled(Box)`
 
 export const StyledDiv = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    height: 100%;
+    margin-top: 3em;
+
+    > img {
+        width: 9em;
+        opacity: .7;
+    }
+    > p {margin-top: 0.7em;
+        color: white;
+        font-size: 1.2em;
+    }
 `;

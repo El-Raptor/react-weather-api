@@ -14,13 +14,12 @@ function App() {
 
   return (
     <Fragment>
-      
-        <Grid direction='column' container item >
-          <Header handleLoc={change} />
-          <Weather city={city} />
-          <Forecast city={city} />
-        </Grid>
-      
+      <Grid style={{ minHeight: '100%' }} direction="column" container item>
+        <Header handleLoc={change} />
+        <Weather city={city} />
+        <Forecast city={city} />
+      </Grid>
+
       <GlobalStyles />
     </Fragment>
   );

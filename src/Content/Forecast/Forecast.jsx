@@ -60,10 +60,10 @@ const Forecast = (props) => {
 
   if (!location) {
     return (
-      <Fragment>Você precisa habilitar a localização do Browser.</Fragment>
+      <Fragment></Fragment>
     );
   } else if (!forecast) {
-    return <Fragment>Carregando a previsão...</Fragment>;
+    return <Fragment></Fragment>;
   } else {
     return (
       <Fragment>

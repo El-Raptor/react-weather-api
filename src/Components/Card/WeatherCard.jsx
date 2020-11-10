@@ -13,7 +13,7 @@ const useStyles = makeStyles({
     fontSize: 20,
   },
   pos: {
-    fontSize: 15,
+    fontSize: 13,
   },
   tempMax: {
     fontSize: 30,

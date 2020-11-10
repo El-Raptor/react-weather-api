@@ -56,7 +56,11 @@ const Weather = (props) => {
   if (!location) {
     return (
       <>
-        <StyledDiv >
+        <StyledDiv>
+          <img
+            src={require("../../Assets/Images/Others/no-location.png")}
+            alt="localização desabilitada"
+          />
           <Typography>
             Você precisa habilitar a localização do Browser.
           </Typography>
@@ -64,7 +68,13 @@ const Weather = (props) => {
       </>
     );
   } else if (!weather) {
-    return <>Carregando o clima...</>;
+    return (
+      <>
+        <StyledDiv>
+          <Typography>Carregando o clima...</Typography>
+        </StyledDiv>
+      </>
+    );
   } else {
     return (
       <Fragment>
