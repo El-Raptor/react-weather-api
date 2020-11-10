@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { AppBar, Toolbar, Typography, Grid } from "@material-ui/core";
+import { Toolbar, Typography, Grid } from "@material-ui/core";
 import { IconButton, InputBase } from "@material-ui/core";
 import CloudIcon from "@material-ui/icons/Cloud";
 import { makeStyles } from "@material-ui/styles";
 import Search from "@material-ui/icons/Search";
-import { StyledBox } from "./styles";
+import { StyledBox, StyledAppBar } from "./styles";
 
 const useStyles = makeStyles(() => ({
   typoStyles: {
@@ -13,10 +13,6 @@ const useStyles = makeStyles(() => ({
   logo: {
     color: "#fff",
     marginLeft: 10,
-  },
-  icon: {
-    color: "#fff",
-    padding: 5,
   },
   input: {
     color: "#fff",
@@ -32,19 +28,19 @@ const Header = (props) => {
   const classes = useStyles();
 
   return (
-    <AppBar position="static">
+    <StyledAppBar position="static">
       <Toolbar>
-        <Grid container item sm={3}>
+        <Grid container item xs={6} sm={5} md={3} lg={2} xl={1}>
           <Typography className={classes.typoStyles}>Weatherly</Typography>
           <CloudIcon className={classes.logo} />
         </Grid>
-        <Grid sm={6} />
-        <Grid sm={3}>
+        <Grid xs={0} sm={2} md={6} lg={7} xl={9} />
+        <Grid xs={6} sm={5} md={3} lg={3} xl={2}>
           <StyledBox component="form">
             <IconButton
               id="search-btn"
               type="submit"
-              className={classes.icon}
+              className="icon"
               onClick={(e) => {
                 e.preventDefault();
                 props.handleLoc(city);
@@ -65,7 +61,7 @@ const Header = (props) => {
           </StyledBox>
         </Grid>
       </Toolbar>
-    </AppBar>
+    </StyledAppBar>
   );
 };
 

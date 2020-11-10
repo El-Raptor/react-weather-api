@@ -1,10 +1,9 @@
 import React, { useState, useEffect, Fragment } from "react";
-import WeatherCard from "../Components/Card/WeatherCard";
+import WeatherCard from "../../Components/Card/WeatherCard";
 import { Grid } from "@material-ui/core";
-import api from "../Service/api";
+import api from "../../Service/api";
 import moment from "moment";
-import { getImg } from "../Service/icon";
-import { capitalize } from "../Controller/capitalize";
+import { capitalize } from "../../Controller/capitalize";
 import "moment/locale/pt-br";
 
 const Forecast = (props) => {
@@ -12,6 +11,7 @@ const Forecast = (props) => {
   const [location, setLocation] = useState(false);
   const [forecast, setForecast] = useState(false);
   const weekDay = [];
+
   for (let i = 0; i < 7; i++) {
     weekDay.push(
       moment().add(i, "days").format("ddd") +
@@ -74,7 +74,7 @@ const Forecast = (props) => {
               maxTemp={forecast.list[0].main.temp_max}
               minTemp={forecast.list[0].main.temp_min}
               desc={capitalize(forecast.list[0].weather[0].description)}
-              imgUrl={getImg(forecast.list[0].weather[0].icon)}
+              imgUrl={forecast.list[0].weather[0].icon}
             />
           </Grid>
           <Grid item>
@@ -83,7 +83,7 @@ const Forecast = (props) => {
               maxTemp={forecast.list[1].main.temp_max}
               minTemp={forecast.list[1].main.temp_min}
               desc={capitalize(forecast.list[1].weather[0].description)}
-              imgUrl={getImg(forecast.list[1].weather[0].icon)}
+              imgUrl={forecast.list[1].weather[0].icon}
             />
           </Grid>
           <Grid item>
@@ -92,7 +92,7 @@ const Forecast = (props) => {
               maxTemp={forecast.list[2].main.temp_max}
               minTemp={forecast.list[2].main.temp_min}
               desc={capitalize(forecast.list[2].weather[0].description)}
-              imgUrl={getImg(forecast.list[2].weather[0].icon)}
+              imgUrl={forecast.list[2].weather[0].icon}
             />
           </Grid>
           <Grid item>
@@ -101,7 +101,7 @@ const Forecast = (props) => {
               maxTemp={forecast.list[3].main.temp_max}
               minTemp={forecast.list[3].main.temp_min}
               desc={capitalize(forecast.list[3].weather[0].description)}
-              imgUrl={getImg(forecast.list[3].weather[0].icon)}
+              imgUrl={forecast.list[3].weather[0].icon}
             />
           </Grid>
           <Grid item>
@@ -110,7 +110,7 @@ const Forecast = (props) => {
               maxTemp={forecast.list[4].main.temp_max}
               minTemp={forecast.list[4].main.temp_min}
               desc={capitalize(forecast.list[4].weather[0].description)}
-              imgUrl={getImg(forecast.list[4].weather[0].icon)}
+              imgUrl={forecast.list[4].weather[0].icon}
             />
           </Grid>
           <Grid item>
@@ -119,7 +119,7 @@ const Forecast = (props) => {
               maxTemp={forecast.list[5].main.temp_max}
               minTemp={forecast.list[5].main.temp_min}
               desc={capitalize(forecast.list[5].weather[0].description)}
-              imgUrl={getImg(forecast.list[5].weather[0].icon)}
+              imgUrl={forecast.list[5].weather[0].icon}
             />
           </Grid>
           <Grid item>
@@ -128,7 +128,7 @@ const Forecast = (props) => {
               maxTemp={forecast.list[6].main.temp_max}
               minTemp={forecast.list[6].main.temp_min}
               desc={capitalize(forecast.list[6].weather[0].description)}
-              imgUrl={getImg(forecast.list[6].weather[0].icon)}
+              imgUrl={forecast.list[6].weather[0].icon}
             />
           </Grid>
         </Grid>

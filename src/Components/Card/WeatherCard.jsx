@@ -25,9 +25,8 @@ const useStyles = makeStyles({
     margin: "0 0 0 .1em",
   },
   media: {
-    height: 1,
-    paddingTop: "56.25%",
-  },
+    paddingTop: 150,
+  }
 });
 
 const WeatherCard = (props) => {
@@ -47,7 +46,12 @@ const WeatherCard = (props) => {
           {dayWeek}
         </Typography>
       </CardContent>
-      <CardMedia className={classes.media} image={imgUrl} />
+      <CardMedia
+        className={classes.media}
+        image={require("../../Assets/Images/WeatherIcons/" + imgUrl + ".png")}
+        height={1}
+        title={'weather icon'}
+      />
       <CardContent>
         <Typography className={classes.tempMax}>{maxRounded}º</Typography>
         <Typography className={classes.tempMin}>{minRounded}º</Typography>
