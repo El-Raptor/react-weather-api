@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from "react";
-import { Divider, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import { StyledBox, StyledDiv } from "./styles";
 import { capitalize } from "../../Controller/capitalize";
 import api from "../../Service/api";
@@ -135,7 +135,6 @@ const Weather = (props) => {
             {capitalize(weather["weather"][0]["description"])}
           </p>
         </StyledBox>
-        <Divider style={{ margin: "2.5em 0 1em 0" }} light={true} />
       </Fragment>
     );
   }
