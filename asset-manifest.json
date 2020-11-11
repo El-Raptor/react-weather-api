@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.js": "/react-weather-api/static/js/main.c1438681.chunk.js",
+    "main.js.map": "/react-weather-api/static/js/main.c1438681.chunk.js.map",
+    "runtime-main.js": "/react-weather-api/static/js/runtime-main.31f94cbe.js",
+    "runtime-main.js.map": "/react-weather-api/static/js/runtime-main.31f94cbe.js.map",
+    "static/js/2.a89daece.chunk.js": "/react-weather-api/static/js/2.a89daece.chunk.js",
+    "static/js/2.a89daece.chunk.js.map": "/react-weather-api/static/js/2.a89daece.chunk.js.map",
+    "index.html": "/react-weather-api/index.html",
+    "precache-manifest.0590439f9172b6ec562b63894c69fa13.js": "/react-weather-api/precache-manifest.0590439f9172b6ec562b63894c69fa13.js",
+    "service-worker.js": "/react-weather-api/service-worker.js",
+    "static/js/2.a89daece.chunk.js.LICENSE.txt": "/react-weather-api/static/js/2.a89daece.chunk.js.LICENSE.txt",
+    "static/media/01d.png": "/react-weather-api/static/media/01d.a022c03f.png",
+    "static/media/01n.png": "/react-weather-api/static/media/01n.3e01708e.png",
+    "static/media/02d.png": "/react-weather-api/static/media/02d.dc242b0f.png",
+    "static/media/02n.png": "/react-weather-api/static/media/02n.b298dd78.png",
+    "static/media/03d.png": "/react-weather-api/static/media/03d.78f898e5.png",
+    "static/media/03n.png": "/react-weather-api/static/media/03n.feadd39e.png",
+    "static/media/04d.png": "/react-weather-api/static/media/04d.1014fdb7.png",
+    "static/media/04n.png": "/react-weather-api/static/media/04n.f70df8fc.png",
+    "static/media/09d.png": "/react-weather-api/static/media/09d.0d004c06.png",
+    "static/media/09n.png": "/react-weather-api/static/media/09n.0d004c06.png",
+    "static/media/10d.png": "/react-weather-api/static/media/10d.4b1a8539.png",
+    "static/media/10n.png": "/react-weather-api/static/media/10n.7241b374.png",
+    "static/media/11d.png": "/react-weather-api/static/media/11d.245e2485.png",
+    "static/media/11n.png": "/react-weather-api/static/media/11n.245e2485.png",
+    "static/media/13d.png": "/react-weather-api/static/media/13d.be802cec.png",
+    "static/media/13n.png": "/react-weather-api/static/media/13n.be802cec.png",
+    "static/media/mqbackground.jpg": "/react-weather-api/static/media/mqbackground.216e9d88.jpg",
+    "static/media/no-location.png": "/react-weather-api/static/media/no-location.2bbb238e.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.31f94cbe.js",
+    "static/js/2.a89daece.chunk.js",
+    "static/js/main.c1438681.chunk.js"
+  ]
+}
