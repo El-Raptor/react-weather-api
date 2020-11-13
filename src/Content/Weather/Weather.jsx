@@ -9,6 +9,8 @@ import {
   WindIcon,
   VisibilityIcon,
   FeelsLikeIcon,
+  ArrowUpIcon,
+  ArrowDownIcon,
 } from "../../Assets/Icons/Icons";
 
 const Weather = (props) => {
@@ -22,7 +24,7 @@ const Weather = (props) => {
       let res = await api.get("weather", {
         params: {
           q: city,
-          appid: process.env.REACT_APP_OPEN_WEATHER_KEY,
+          appid: 'f5814b97023f14264f77a01b3ccc3649',//process.env.REACT_APP_OPEN_WEATHER_KEY,
           units: "metric",
           lang: "pt",
         },
@@ -33,7 +35,7 @@ const Weather = (props) => {
         params: {
           lat: lat,
           lon: long,
-          appid: process.env.REACT_APP_OPEN_WEATHER_KEY,
+          appid: 'f5814b97023f14264f77a01b3ccc3649',//process.env.REACT_APP_OPEN_WEATHER_KEY,
           units: "metric",
           lang: "pt",
         },
@@ -116,14 +118,24 @@ const Weather = (props) => {
               ? Math.round(weather["main"]["temp"])
               : Math.round(convertUnit(weather["main"]["temp"]))}
           </p>
-          <span
-            className="btn-unit"
-            onClick={() => {
-              setCelsius(!celsius);
-            }}
-          >
-            <p className="unit">º{celsius ? "C" : "F"}</p>
-          </span>
+          <div className="max-min" >
+            <span
+              className="btn-unit"
+              onClick={() => {
+                setCelsius(!celsius);
+              }}
+            >
+              <p className="unit">º{celsius ? "C" : "F"}</p>
+            </span>
+            <span>
+              <ArrowUpIcon style={{ color: "white" }} />
+              <p>{Math.round(weather['main']['temp_max'])}º</p>
+            </span>
+            <span>
+              <ArrowDownIcon style={{ color: "white" }} />
+              <p>{Math.round(weather['main']['temp_min'])}º</p>
+            </span>
+          </div>
         </StyledBox>
         <StyledBox>
           <p className="city">

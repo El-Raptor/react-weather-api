@@ -57,7 +57,20 @@ export const StyledBox = styled(Box)`
         display: flex;
         flex-direction: row;
         align-items: center;
+        
+        &.max-min {
+            flex-direction: column;
 
+            > span {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                > p {
+                    padding-top: .12em;
+                }
+            }
+        }
         
         > svg {
             margin-right: 0.3em;

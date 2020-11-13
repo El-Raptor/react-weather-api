@@ -29,7 +29,7 @@ const Forecast = (props) => {
       let res = await api.get("forecast", {
         params: {
           q: city,
-          appid: process.env.REACT_APP_OPEN_WEATHER_KEY,
+          appid: 'f5814b97023f14264f77a01b3ccc3649',//process.env.REACT_APP_OPEN_WEATHER_KEY,
           cnt: 7,
           units: "metric",
           lang: "pt",
@@ -41,7 +41,7 @@ const Forecast = (props) => {
         params: {
           lat: lat,
           lon: long,
-          appid: process.env.REACT_APP_OPEN_WEATHER_KEY,
+          appid: 'f5814b97023f14264f77a01b3ccc3649',//process.env.REACT_APP_OPEN_WEATHER_KEY,
           cnt: 7,
           units: "metric",
           lang: "pt",
